@@ -59,6 +59,23 @@
     });
   });
 
+
+  // Copiar texto específico (e-mail, endereço, telefone)
+  document.querySelectorAll('[data-copiar-texto]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      var valor = el.getAttribute('data-copiar-texto');
+      var msg = el.getAttribute('data-copiar-aviso') || 'Copiado!';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(valor).then(function () {
+          aviso(msg);
+        });
+      } else {
+        window.prompt('Copie:', valor);
+      }
+    });
+  });
+
   // Imprimir
   document.querySelectorAll('[data-imprimir]').forEach(function (el) {
     el.addEventListener('click', function (e) { e.preventDefault(); window.print(); });

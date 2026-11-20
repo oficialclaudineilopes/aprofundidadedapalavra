@@ -110,9 +110,9 @@ h1, h2, h3, h4 { font-family: var(--fonte-titulo); color: var(--cor-primaria); l
 
 .menu-principal { display: flex; align-items: center; gap: 4px; list-style: none; }
 .menu-principal a {
-  display: block; padding: 10px 14px; border-radius: 6px;
+  display: block; padding: 9px 11px; border-radius: 6px;
   color: var(--cor-branco); text-decoration: none;
-  font-size: 15px; font-weight: 600;
+  font-size: 14.5px; font-weight: 600; white-space: nowrap;
 }
 .menu-principal a:hover,
 .menu-principal a[aria-current="page"] {
@@ -346,7 +346,7 @@ table.tabela { width: 100%; border-collapse: collapse; margin: 20px 0; backgroun
   .rodape-grade { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 980px) {
   .btn-menu { display: block; }
   .menu-principal {
     display: none; position: absolute; left: 0; right: 0; top: 100%;
@@ -1175,4 +1175,471 @@ table.tabela { width: 100%; border-collapse: collapse; margin: 20px 0; backgroun
   .bio-conteudo .ficha dl { grid-template-columns: 1fr; }
   .bio-conteudo .ficha dt { border-bottom: 0; padding-bottom: 2px; }
   .bio-conteudo .ficha dd { padding-top: 0; }
+}
+/* ============================================================
+   ESTUDOS BÍBLICOS COMPLETOS — COMPONENTES (RAÍZES PROFUNDAS)
+   ============================================================ */
+.estudo-conteudo {
+  min-width: 0;
+}
+
+.estudo-conteudo section {
+  scroll-margin-top: 92px;
+}
+
+.estudo-conteudo .banner {
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  padding: 18px 24px;
+  border-radius: var(--raio);
+  border-left: 6px solid var(--cor-destaque);
+  margin: 44px 0 22px;
+}
+
+.estudo-conteudo section:first-child .banner {
+  margin-top: 0;
+}
+
+.estudo-conteudo .banner.fruto {
+  background-color: var(--cor-primaria-clara);
+  border-left-color: var(--cor-destaque);
+}
+
+.estudo-conteudo .banner small {
+  display: block;
+  color: var(--cor-destaque);
+  font-family: var(--fonte-corpo);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.estudo-conteudo .banner h2 {
+  color: var(--cor-branco);
+  border-left: 0;
+  padding-left: 0;
+  margin: 0;
+  font-size: 24px;
+}
+
+.estudo-conteudo h3 {
+  color: var(--cor-primaria);
+  font-size: 21px;
+  margin: 28px 0 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--cor-borda-suave);
+}
+
+.estudo-conteudo h4 {
+  font-family: var(--fonte-corpo);
+  color: var(--cor-destaque-hover);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 18px 0 6px;
+}
+
+/* Blocos de estudo: aplicação, reflexão, pergunta, cuidado, contexto, exemplo */
+.estudo-conteudo .aplicacao,
+.estudo-conteudo .reflexao,
+.estudo-conteudo .pergunta,
+.estudo-conteudo .cuidado,
+.estudo-conteudo .contexto,
+.estudo-conteudo .exemplo {
+  border-radius: var(--raio);
+  padding: 16px 20px;
+  margin: 18px 0;
+  font-size: 16px;
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  box-shadow: var(--sombra);
+}
+
+.estudo-conteudo .aplicacao {
+  border-left: 5px solid var(--cor-primaria-clara);
+}
+
+.estudo-conteudo .reflexao {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  border-color: var(--cor-primaria);
+  border-left: 5px solid var(--cor-destaque);
+}
+
+.estudo-conteudo .pergunta {
+  border: 2px dashed var(--cor-destaque);
+  background-color: var(--cor-branco);
+}
+
+.estudo-conteudo .cuidado {
+  background-color: var(--cor-fundo-pagina);
+  border-left: 5px solid var(--cor-destaque-hover);
+}
+
+.estudo-conteudo .contexto {
+  border-left: 5px solid var(--cor-destaque);
+}
+
+.estudo-conteudo .exemplo {
+  background-color: var(--cor-fundo-pagina);
+  border-left: 5px solid var(--cor-primaria);
+}
+
+.estudo-conteudo .rotulo {
+  display: block;
+  font-family: var(--fonte-corpo);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: var(--cor-destaque-hover);
+}
+
+.estudo-conteudo .aplicacao .rotulo { color: var(--cor-primaria); }
+.estudo-conteudo .reflexao .rotulo { color: var(--cor-destaque); }
+.estudo-conteudo .cuidado .rotulo { color: var(--cor-destaque-hover); }
+
+/* Cartões de Dons e Frutos */
+.estudo-conteudo .card {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  border-top: 5px solid var(--cor-primaria);
+  border-radius: var(--raio);
+  padding: 22px 24px;
+  margin: 24px 0;
+  box-shadow: var(--sombra);
+  scroll-margin-top: 96px;
+}
+
+.estudo-conteudo .card.fruto {
+  border-top-color: var(--cor-destaque);
+}
+
+.estudo-conteudo .card header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.estudo-conteudo .card .num {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+  color: var(--cor-destaque);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.estudo-conteudo .card.fruto .num {
+  background-color: var(--cor-destaque);
+  color: var(--cor-primaria);
+}
+
+.estudo-conteudo .card h3 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 21px;
+}
+
+.estudo-conteudo .card .grego {
+  font-size: 13.5px;
+  color: var(--cor-texto-secundario);
+  margin-top: 2px;
+}
+
+.estudo-conteudo .card .tag {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  background-color: var(--cor-fundo-pagina);
+  color: var(--cor-primaria);
+  border: 1px solid var(--cor-borda-suave);
+  border-radius: 20px;
+  padding: 3px 12px;
+  margin-bottom: 8px;
+}
+
+.estudo-conteudo .card.fruto .tag {
+  background-color: rgba(198, 163, 94, 0.16);
+  color: #6B5016;
+  border-color: rgba(198, 163, 94, 0.45);
+}
+
+/* Atalhos rápidos dentro das seções (9 dons / 9 frutos) */
+.atalhos-rapidos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 22px;
+}
+
+.atalhos-rapidos a {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  color: var(--cor-primaria);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.atalhos-rapidos a:hover {
+  background-color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  color: var(--cor-destaque);
+}
+
+/* Grades de apoio */
+.estudo-conteudo .grupo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.estudo-conteudo .grupo div {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  border-top: 4px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  padding: 16px 18px;
+  font-size: 15.5px;
+  box-shadow: var(--sombra);
+}
+
+.estudo-conteudo .grupo strong {
+  color: var(--cor-primaria);
+}
+
+/* Tabelas do estudo */
+.estudo-conteudo .tabela-scroll {
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid var(--cor-borda-suave);
+  border-radius: var(--raio);
+  background-color: var(--cor-branco);
+}
+
+.estudo-conteudo table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15.5px;
+  background-color: var(--cor-branco);
+}
+
+.estudo-conteudo th {
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  text-align: left;
+  padding: 11px 14px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.estudo-conteudo td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--cor-borda-suave);
+  vertical-align: top;
+}
+
+.estudo-conteudo tr:last-child td {
+  border-bottom: 0;
+}
+
+.estudo-conteudo tr:nth-child(even) td {
+  background-color: var(--cor-fundo-pagina);
+}
+
+.estudo-conteudo .biblio li {
+  margin-bottom: 10px;
+  font-size: 15.5px;
+}
+
+/* Bloco de conexões / leituras relacionadas */
+.leituras-relacionadas {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  border-top: 4px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  padding: 22px 24px;
+  margin-top: 36px;
+  box-shadow: var(--sombra);
+}
+
+.leituras-relacionadas h2 {
+  font-size: 19px;
+  border-left: 0;
+  padding-left: 0;
+  margin: 0 0 8px;
+}
+
+.leituras-relacionadas p {
+  color: var(--cor-texto-secundario);
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+
+.leituras-relacionadas ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.leituras-relacionadas li {
+  margin: 0;
+}
+
+.leituras-relacionadas a {
+  font-weight: 700;
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+.leituras-relacionadas a:hover {
+  color: var(--cor-destaque-hover);
+  text-decoration: underline;
+}
+
+.estudo-link-inline {
+  color: var(--cor-primaria);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--cor-destaque);
+  text-underline-offset: 3px;
+}
+
+.estudo-link-inline:hover {
+  color: var(--cor-destaque-hover);
+}
+
+@media print {
+  .atalhos-rapidos, .leituras-relacionadas { display: none !important; }
+  .estudo-conteudo .banner, .estudo-conteudo .card, .estudo-conteudo .versiculo,
+  .estudo-conteudo .aplicacao, .estudo-conteudo .reflexao, .estudo-conteudo .pergunta,
+  .estudo-conteudo .cuidado, .estudo-conteudo .contexto, .estudo-conteudo .exemplo {
+    page-break-inside: avoid;
+  }
+}
+/* ============================================================
+   CONTATO, LOCAL DE APROFUNDAMENTO E RODAPÉ INSTITUCIONAL
+   ============================================================ */
+.grade-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.cartao-contato {
+  border-top: 4px solid var(--cor-destaque);
+  gap: 0;
+}
+
+.cartao-contato h2 {
+  font-size: 22px;
+  margin-bottom: 14px;
+  border-left: 4px solid var(--cor-destaque);
+  padding-left: 12px;
+}
+
+.lista-dados {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.lista-dados li {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--cor-borda-suave);
+  font-size: 15.5px;
+  color: var(--cor-texto-principal);
+}
+
+.lista-dados li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.lista-dados .dado-rotulo {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--cor-destaque-hover);
+  margin-bottom: 2px;
+}
+
+.lista-dados a {
+  color: var(--cor-primaria);
+  font-weight: 700;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.lista-dados a:hover {
+  color: var(--cor-destaque-hover);
+  text-decoration: underline;
+}
+
+.contato-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.secao-local-home {
+  padding: 56px 0 64px;
+}
+
+.rodape-local {
+  border-top: 1px solid var(--cor-primaria-clara);
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 18px 32px;
+  font-size: 14px;
+  color: var(--cor-texto-claro);
+}
+
+.rodape-local strong {
+  color: var(--cor-destaque);
+}
+
+.rodape-local p {
+  margin: 0 0 4px;
+  line-height: 1.55;
+}
+
+.rodape-local p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 780px) {
+  .grade-2,
+  .rodape-local {
+    grid-template-columns: 1fr;
+  }
 }
