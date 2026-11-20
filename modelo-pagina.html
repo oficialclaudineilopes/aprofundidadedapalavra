@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDITAR: título e descrição de cada página -->
+  <title>Título do Estudo — A Profundidade da Palavra</title>
+  <meta name="description" content="Resumo do estudo em uma ou duas frases.">
+  <meta name="theme-color" content="#092342">
+  <!-- Caminhos a partir da raiz do site (funcionam em qualquer subpágina quando hospedado) -->
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="stylesheet" href="/assets/css/estilo.css">
+</head>
+<body>
+
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ===== CABEÇALHO COMPARTILHADO (idêntico ao da página inicial) ===== -->
+  <header class="site-header">
+    <div class="container header-interno">
+      <a class="logo" href="/" aria-label="A Profundidade da Palavra — página inicial">
+        <img class="logo-marca" src="/assets/img/logo.jpg" alt="" width="48" height="48">
+        <span class="logo-texto"><small>EB</small><strong>A Profundidade da Palavra</strong></span>
+      </a>
+      <button class="btn-menu" type="button" aria-expanded="false" aria-controls="menu-principal">☰ Menu</button>
+      <nav aria-label="Menu principal">
+        <ul class="menu-principal" id="menu-principal">
+          <!-- Marque a seção atual com aria-current="page" -->
+          <li><a href="/estudos/" aria-current="page">Estudos Bíblicos</a></li>
+          <li><a href="/curiosidades/">Curiosidades</a></li>
+          <li><a href="/biografias/">Biografias</a></li>
+          <li><a href="/escola-biblica/">Escola Bíblica</a></li>
+          <li><a href="/recursos/">Recursos</a></li>
+          <li><a href="/sobre/">Sobre</a></li>
+          <li class="menu-busca"><a href="/busca/" aria-label="Buscar no site">🔍</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== CABEÇALHO DA PÁGINA ===== -->
+  <div class="cabecalho-pagina">
+    <span class="tag-topo">Estudos Bíblicos &bull; Nome da Série</span>
+    <h1>Título do Estudo</h1>
+    <p>Subtítulo ou frase de abertura do estudo.</p>
+  </div>
+
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Você está em">
+      <a href="/">Início</a><span aria-hidden="true">›</span>
+      <a href="/estudos/">Estudos</a><span aria-hidden="true">›</span>
+      <a href="/estudos/series/">Séries</a><span aria-hidden="true">›</span>
+      <span>Título do Estudo</span>
+    </nav>
+
+    <div class="layout-conteudo">
+
+      <!-- Índice lateral -->
+      <aside class="indice-lateral" aria-label="Neste estudo">
+        <h2>Neste estudo</h2>
+        <ol>
+          <li><a href="#texto">O Texto</a></li>
+          <li><a href="#contexto">Contexto Histórico</a></li>
+          <li><a href="#linguas">Línguas Originais</a></li>
+          <li><a href="#teologia">Teologia e Tradição</a></li>
+          <li><a href="#aplicacao">Aplicação Espiritual</a></li>
+          <li><a href="#referencias">Referências</a></li>
+        </ol>
+      </aside>
+
+      <!-- Conteúdo -->
+      <main id="conteudo" class="artigo">
+
+        <h2 id="texto">1. O Texto</h2>
+        <p>Introdução ao texto bíblico em estudo e seu contexto literário.</p>
+        <blockquote class="versiculo">
+          Texto do versículo em destaque.
+          <cite>Livro capítulo:versículo</cite>
+        </blockquote>
+
+        <h2 id="contexto">2. Contexto Histórico</h2>
+        <p>Autor, data, destinatários, cenário cultural e político.</p>
+
+        <h2 id="linguas">3. Línguas Originais</h2>
+        <p>Análise de palavras-chave no hebraico, aramaico ou grego.</p>
+        <table class="tabela">
+          <thead><tr><th>Termo original</th><th>Transliteração</th><th>Significado</th></tr></thead>
+          <tbody><tr><td>—</td><td>—</td><td>—</td></tr></tbody>
+        </table>
+
+        <h2 id="teologia">4. Teologia e Tradição</h2>
+        <p>Como o texto foi compreendido pela Igreja e por autores consagrados.</p>
+        <div class="caixa-destaque">
+          <h3>Ponto de atenção</h3>
+          <p>Destaque doutrinário ou observação importante.</p>
+        </div>
+
+        <h2 id="aplicacao">5. Aplicação Pessoal e Espiritual</h2>
+        <p>O que este texto revela sobre a vontade de Deus para a nossa vida.</p>
+
+        <section class="caixa-referencias" id="referencias" aria-labelledby="titulo-ref">
+          <h2 id="titulo-ref">Referências</h2>
+          <ul>
+            <li>Autor. <em>Título da obra</em>. Cidade: Editora, ano.</li>
+          </ul>
+        </section>
+
+        <div class="acoes-pagina">
+          <button class="btn btn-destaque" type="button" data-compartilhar="whatsapp">Compartilhar</button>
+          <button class="btn btn-contorno" type="button" data-compartilhar="copiar">Copiar link</button>
+          <button class="btn btn-contorno" type="button" data-imprimir>Imprimir</button>
+          <!-- Ativar quando o PDF existir: <a class="btn btn-primario" href="/downloads/arquivo.pdf">Baixar PDF</a> -->
+        </div>
+
+        <div class="navegacao-serie">
+          <a class="btn btn-contorno" href="#">← Estudo anterior</a>
+          <a class="btn btn-contorno" href="#">Próximo estudo →</a>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- ===== RODAPÉ COMPARTILHADO (idêntico ao da página inicial, com links a partir da raiz) ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="rodape-grade">
+        <div class="rodape-sobre">
+          <a class="logo" href="/">
+            <img class="logo-marca" src="/assets/img/logo.jpg" alt="" width="48" height="48">
+            <span class="logo-texto"><small>EB</small><strong>A Profundidade da Palavra</strong></span>
+          </a>
+          <p>Cavar fundo na Palavra para firmar raízes na vontade de Deus.</p>
+          <button class="btn btn-destaque" type="button" data-compartilhar="nativo">Compartilhar</button>
+        </div>
+        <div>
+          <h2>Conteúdo</h2>
+          <ul>
+            <li><a href="/estudos/">Estudos Bíblicos</a></li>
+            <li><a href="/curiosidades/">Curiosidades Teológicas</a></li>
+            <li><a href="/biografias/">Biografias Bíblicas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Aprender</h2>
+          <ul>
+            <li><a href="/escola-biblica/">Escola Bíblica</a></li>
+            <li><a href="/recursos/">Recursos e Apostilas</a></li>
+            <li><a href="/recursos/glossario/">Glossário Teológico</a></li>
+            <li><a href="/busca/">Buscar no site</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>O site</h2>
+          <ul>
+            <li><a href="/sobre/">Sobre</a></li>
+            <li><a href="/sobre/#pilares">Os Cinco Pilares</a></li>
+            <li><a href="/sobre/#declaracao-de-fe">Declaração de Fé</a></li>
+            <li><a href="/contato/">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rodape-base">
+        &copy; <span data-ano>2026</span> A Profundidade da Palavra &bull; Claudinei Lopes &bull; Todos os direitos reservados
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>
