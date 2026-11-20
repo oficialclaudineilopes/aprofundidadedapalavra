@@ -1,0 +1,1178 @@
+/* ============================================================
+   A PROFUNDIDADE DA PALAVRA — CSS COMPARTILHADO
+   Identidade visual: Opção 1 (Raízes Profundas)
+   Usar em todas as páginas: <link rel="stylesheet" href="assets/css/estilo.css">
+   ============================================================ */
+
+:root {
+  --cor-primaria: #092342;
+  --cor-primaria-clara: #143861;
+  --cor-destaque: #C6A35E;
+  --cor-destaque-hover: #A68440;
+  --cor-branco: #FFFFFF;
+  --cor-fundo-pagina: #F7F5F0;
+  --cor-borda-suave: #E2DDD2;
+  --cor-texto-principal: #142130;
+  --cor-texto-secundario: #4F5D6E;
+  --cor-texto-claro: #D9E1EB;
+
+  --fonte-corpo: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --fonte-titulo: Georgia, 'Times New Roman', serif;
+  --largura-max: 1100px;
+  --raio: 8px;
+  --sombra: 0 2px 8px rgba(9, 35, 66, 0.05);
+  --sombra-forte: 0 8px 24px rgba(9, 35, 66, 0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo-pagina);
+  color: var(--cor-texto-principal);
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+img, svg { max-width: 100%; display: block; }
+a { color: var(--cor-primaria-clara); }
+a:hover { color: var(--cor-destaque-hover); }
+
+:focus-visible {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.pular-conteudo {
+  position: absolute; left: -999px; top: 0;
+  background: var(--cor-destaque); color: var(--cor-primaria);
+  padding: 10px 16px; font-weight: 700; z-index: 200;
+}
+.pular-conteudo:focus { left: 10px; top: 10px; }
+
+.container { max-width: var(--largura-max); margin: 0 auto; padding: 0 20px; }
+
+/* ---------- Tipografia ---------- */
+h1, h2, h3, h4 { font-family: var(--fonte-titulo); color: var(--cor-primaria); line-height: 1.25; }
+
+.titulo-secao {
+  font-size: 26px;
+  border-left: 4px solid var(--cor-destaque);
+  padding-left: 12px;
+  margin-bottom: 10px;
+}
+.subtitulo-secao {
+  color: var(--cor-texto-secundario);
+  margin: 0 0 28px 16px;
+  max-width: 720px;
+}
+
+.tag-topo {
+  display: inline-block;
+  color: var(--cor-destaque);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* ---------- Cabeçalho e navegação ---------- */
+.site-header {
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  border-bottom: 4px solid var(--cor-destaque);
+  position: sticky; top: 0; z-index: 100;
+}
+.header-interno {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding-top: 12px; padding-bottom: 12px;
+}
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: var(--cor-branco);
+}
+.logo:hover { color: var(--cor-branco); }
+.logo-marca { width: 48px; height: 48px; flex-shrink: 0; border-radius: 50%; }
+.logo-texto { display: flex; flex-direction: column; line-height: 1.15; }
+.logo-texto small {
+  color: var(--cor-destaque); font-size: 10.5px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+}
+.logo-texto strong { font-family: var(--fonte-titulo); font-size: 18px; font-weight: 600; }
+
+.menu-principal { display: flex; align-items: center; gap: 4px; list-style: none; }
+.menu-principal a {
+  display: block; padding: 10px 14px; border-radius: 6px;
+  color: var(--cor-branco); text-decoration: none;
+  font-size: 15px; font-weight: 600;
+}
+.menu-principal a:hover,
+.menu-principal a[aria-current="page"] {
+  background-color: var(--cor-primaria-clara);
+  color: var(--cor-destaque);
+}
+.menu-principal .menu-busca a { padding: 10px 12px; }
+
+.btn-menu {
+  display: none; background: transparent; color: var(--cor-branco);
+  border: 2px solid var(--cor-destaque); border-radius: 6px;
+  padding: 8px 12px; font-size: 15px; font-weight: 700; cursor: pointer;
+}
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-block; padding: 10px 22px; border-radius: 6px;
+  font-weight: 700; font-size: 16px; cursor: pointer; text-decoration: none;
+  border: 2px solid transparent; font-family: var(--fonte-corpo);
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+.btn-primario { background-color: var(--cor-primaria); color: var(--cor-branco); border-color: var(--cor-primaria); }
+.btn-primario:hover { background-color: var(--cor-primaria-clara); border-color: var(--cor-primaria-clara); color: var(--cor-branco); }
+.btn-destaque { background-color: var(--cor-destaque); color: var(--cor-primaria); border-color: var(--cor-destaque); }
+.btn-destaque:hover { background-color: var(--cor-destaque-hover); border-color: var(--cor-destaque-hover); color: var(--cor-branco); }
+.btn-contorno { background-color: transparent; color: var(--cor-primaria); border-color: var(--cor-primaria); }
+.btn-contorno:hover { background-color: var(--cor-fundo-pagina); color: var(--cor-primaria); }
+.btn-contorno-claro { background-color: transparent; color: var(--cor-branco); border-color: var(--cor-branco); }
+.btn-contorno-claro:hover { background-color: rgba(255,255,255,.1); color: var(--cor-branco); }
+
+/* ---------- Hero / cabeçalho de página ---------- */
+.hero {
+  background-color: var(--cor-primaria);
+  background-image:
+    radial-gradient(circle at 85% 20%, rgba(198,163,94,.14), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(20,56,97,.9), transparent 55%);
+  color: var(--cor-branco);
+  text-align: center;
+  padding: 72px 20px 80px;
+  border-bottom: 4px solid var(--cor-destaque);
+}
+.hero h1 { color: var(--cor-branco); font-size: 40px; font-weight: 600; margin-bottom: 14px; }
+.hero .lead { color: var(--cor-texto-claro); font-size: 18px; max-width: 700px; margin: 0 auto 28px; }
+.hero .frase-proposito {
+  font-family: var(--fonte-titulo); font-style: italic;
+  color: var(--cor-destaque); font-size: 19px;
+  max-width: 640px; margin: 0 auto 32px;
+}
+.hero-acoes { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+.cabecalho-pagina {
+  background-color: var(--cor-primaria); color: var(--cor-branco);
+  text-align: center; padding: 48px 20px;
+  border-bottom: 4px solid var(--cor-destaque);
+}
+.cabecalho-pagina h1 { color: var(--cor-branco); font-size: 32px; font-weight: 600; margin-bottom: 8px; }
+.cabecalho-pagina p { color: var(--cor-texto-claro); max-width: 640px; margin: 0 auto; }
+
+/* ---------- Seções e cartões ---------- */
+main { display: block; }
+.secao { padding: 56px 0 8px; }
+.secao-fim { padding-bottom: 64px; }
+
+.grade-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 22px; }
+.grade-5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 18px; }
+
+.cartao {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 28px;
+  display: flex; flex-direction: column;
+}
+.cartao h3 { font-size: 21px; margin-bottom: 8px; }
+.cartao p { color: var(--cor-texto-secundario); margin-bottom: 20px; flex-grow: 1; }
+
+.cartao-secao { border-top: 4px solid var(--cor-destaque); transition: transform .2s, box-shadow .2s; }
+.cartao-secao:hover { transform: translateY(-3px); box-shadow: var(--sombra-forte); }
+.icone-cartao {
+  width: 52px; height: 52px; border-radius: 50%;
+  background-color: var(--cor-primaria); color: var(--cor-destaque);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.icone-cartao svg { width: 26px; height: 26px; }
+.cartao .btn { align-self: flex-start; }
+
+.cartao-pilar { text-align: center; padding: 22px 16px; }
+.numero-pilar {
+  font-family: var(--fonte-titulo); font-size: 30px; font-weight: 700;
+  color: var(--cor-destaque); line-height: 1; margin-bottom: 10px;
+}
+.cartao-pilar h3 { font-size: 17px; margin-bottom: 6px; }
+.cartao-pilar p { font-size: 14.5px; margin-bottom: 0; }
+
+.etiqueta {
+  display: inline-block; align-self: flex-start;
+  background-color: var(--cor-fundo-pagina); color: var(--cor-texto-secundario);
+  border: 1px solid var(--cor-borda-suave); border-radius: 20px;
+  font-size: 12px; font-weight: 700; letter-spacing: .5px;
+  text-transform: uppercase; padding: 3px 12px; margin-bottom: 12px;
+}
+.link-seta { font-weight: 700; text-decoration: none; color: var(--cor-primaria); }
+.link-seta:hover { color: var(--cor-destaque-hover); }
+.link-seta::after { content: " →"; }
+
+/* ---------- Faixa do condutor ---------- */
+.faixa-condutor {
+  background-color: var(--cor-branco);
+  border-top: 1px solid var(--cor-borda-suave);
+  border-bottom: 1px solid var(--cor-borda-suave);
+  margin-top: 56px; padding: 56px 0;
+}
+.condutor { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; justify-content: center; }
+.condutor-avatar {
+  width: 110px; height: 110px; border-radius: 50%;
+  background-color: var(--cor-primaria); color: var(--cor-destaque);
+  border: 4px solid var(--cor-destaque);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--fonte-titulo); font-size: 40px; font-weight: 700; flex-shrink: 0;
+}
+.condutor-texto { max-width: 640px; }
+.condutor-texto h2 { font-size: 26px; margin-bottom: 4px; }
+.condutor-cargo { color: var(--cor-destaque-hover); font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.condutor-texto p { color: var(--cor-texto-secundario); }
+
+/* ---------- Chamada final ---------- */
+.chamada-final {
+  background-color: var(--cor-primaria); color: var(--cor-branco);
+  text-align: center; padding: 56px 20px;
+  border-top: 4px solid var(--cor-destaque);
+}
+.chamada-final h2 { color: var(--cor-branco); font-size: 28px; margin-bottom: 10px; }
+.chamada-final p { color: var(--cor-texto-claro); max-width: 600px; margin: 0 auto 24px; }
+
+/* ---------- Páginas de conteúdo ---------- */
+.breadcrumb { font-size: 14px; color: var(--cor-texto-secundario); padding: 20px 0 0; }
+.breadcrumb a { color: var(--cor-texto-secundario); text-decoration: none; }
+.breadcrumb a:hover { color: var(--cor-destaque-hover); text-decoration: underline; }
+.breadcrumb span[aria-hidden] { margin: 0 6px; }
+
+.layout-conteudo { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 40px; padding: 32px 0 64px; align-items: start; }
+.indice-lateral {
+  position: sticky; top: 100px;
+  background: var(--cor-branco); border: 1px solid var(--cor-borda-suave);
+  border-radius: var(--raio); padding: 18px 20px; font-size: 15px;
+}
+.indice-lateral h2 { font-size: 16px; margin-bottom: 10px; border: 0; padding: 0; }
+.indice-lateral ol { padding-left: 18px; }
+.indice-lateral li { margin-bottom: 6px; }
+.indice-lateral a { text-decoration: none; color: var(--cor-texto-principal); }
+.indice-lateral a:hover { color: var(--cor-destaque-hover); }
+
+.artigo h2 {
+  font-size: 24px; border-left: 4px solid var(--cor-destaque);
+  padding-left: 12px; margin: 36px 0 14px;
+}
+.artigo h2:first-child { margin-top: 0; }
+.artigo h3 { font-size: 20px; margin: 24px 0 10px; }
+.artigo p { margin-bottom: 16px; }
+.artigo ul, .artigo ol { margin: 0 0 16px 24px; }
+.artigo li { margin-bottom: 6px; }
+
+.versiculo {
+  background-color: var(--cor-branco); border-left: 4px solid var(--cor-destaque);
+  border-radius: 0 var(--raio) var(--raio) 0; padding: 18px 22px; margin: 20px 0;
+  font-family: var(--fonte-titulo); font-style: italic; font-size: 18px;
+}
+.versiculo cite { display: block; margin-top: 8px; font-style: normal; font-family: var(--fonte-corpo); font-size: 14px; font-weight: 700; color: var(--cor-texto-secundario); }
+
+.caixa-destaque {
+  background-color: var(--cor-primaria); color: var(--cor-branco);
+  border-left: 4px solid var(--cor-destaque); border-radius: var(--raio);
+  padding: 20px 24px; margin: 24px 0;
+}
+.caixa-destaque h3 { color: var(--cor-destaque); margin: 0 0 8px; font-size: 18px; }
+.caixa-destaque p { margin: 0; color: var(--cor-texto-claro); }
+
+.caixa-referencias {
+  background: var(--cor-branco); border: 1px solid var(--cor-borda-suave);
+  border-radius: var(--raio); padding: 20px 24px; margin-top: 36px;
+  font-size: 15px; color: var(--cor-texto-secundario);
+}
+.caixa-referencias h2 { font-size: 18px; border: 0; padding: 0; margin: 0 0 10px; }
+
+table.tabela { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--cor-branco); font-size: 15.5px; }
+.tabela th { background: var(--cor-primaria); color: var(--cor-branco); text-align: left; padding: 10px 14px; }
+.tabela td { padding: 10px 14px; border-bottom: 1px solid var(--cor-borda-suave); }
+
+.acoes-pagina { display: flex; flex-wrap: wrap; gap: 12px; margin: 32px 0 0; }
+.navegacao-serie {
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--cor-borda-suave);
+}
+
+/* ---------- Rodapé ---------- */
+.site-footer {
+  background-color: var(--cor-primaria); color: var(--cor-texto-claro);
+  border-top: 4px solid var(--cor-destaque); padding: 48px 0 0; font-size: 15px;
+}
+.rodape-grade { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 36px; }
+.site-footer h2 {
+  font-family: var(--fonte-corpo); font-size: 13px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--cor-destaque); margin-bottom: 14px;
+}
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 8px; }
+.site-footer a { color: var(--cor-texto-claro); text-decoration: none; }
+.site-footer a:hover { color: var(--cor-destaque); text-decoration: underline; }
+.rodape-sobre p { margin: 12px 0 16px; max-width: 320px; }
+.rodape-base {
+  border-top: 1px solid var(--cor-primaria-clara);
+  padding: 18px 0; text-align: center; font-size: 13.5px; color: #9FB0C4;
+}
+
+/* ---------- Aviso de cópia ---------- */
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--cor-primaria); color: var(--cor-branco);
+  border: 2px solid var(--cor-destaque); border-radius: 6px;
+  padding: 10px 20px; font-weight: 600; opacity: 0; pointer-events: none;
+  transition: opacity .25s, transform .25s; z-index: 300;
+}
+.toast.visivel { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 960px) {
+  .layout-conteudo { grid-template-columns: 1fr; }
+  .indice-lateral { position: static; }
+  .rodape-grade { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 860px) {
+  .btn-menu { display: block; }
+  .menu-principal {
+    display: none; position: absolute; left: 0; right: 0; top: 100%;
+    background-color: var(--cor-primaria); flex-direction: column; align-items: stretch;
+    padding: 10px 20px 18px; border-bottom: 4px solid var(--cor-destaque);
+  }
+  .menu-principal.aberto { display: flex; }
+  .menu-principal a { padding: 12px 14px; }
+  .hero { padding: 52px 20px 56px; }
+  .hero h1 { font-size: 30px; }
+  .cabecalho-pagina h1 { font-size: 26px; }
+  .condutor { text-align: center; }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .rodape-grade { grid-template-columns: 1fr; }
+  .logo-texto strong { font-size: 16px; }
+  .titulo-secao { font-size: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* ---------- Impressão ---------- */
+@media print {
+  .site-header, .site-footer, .indice-lateral, .acoes-pagina,
+  .navegacao-serie, .btn-menu, .breadcrumb, .toast { display: none !important; }
+  body { background: #fff; font-size: 12pt; }
+  .layout-conteudo { display: block; padding: 0; }
+  .cabecalho-pagina { background: #fff; color: #000; border-bottom: 2px solid #000; padding: 12px 0; }
+  .cabecalho-pagina h1, .cabecalho-pagina p { color: #000; }
+}
+
+/* ---------- Logo oficial no hero ---------- */
+.hero-logo {
+  width: 150px; height: 150px; border-radius: 50%;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 0 3px rgba(198,163,94,.35), 0 10px 30px rgba(0,0,0,.35);
+}
+@media (max-width: 560px) { .hero-logo { width: 120px; height: 120px; } }
+
+/* ---------- ESTÁGIOS E LISTAS DE CONTEÚDO ---------- */
+.aviso-site {
+  background: var(--cor-branco); border: 1px solid var(--cor-borda-suave);
+  border-left: 4px solid var(--cor-destaque); border-radius: var(--raio);
+  padding: 14px 18px; margin: 24px 0 0; font-size: 15px; color: var(--cor-texto-secundario);
+}
+.lista-estagios { display: grid; gap: 18px; }
+.estagio {
+  display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 18px;
+  background: var(--cor-branco); border: 1px solid var(--cor-borda-suave);
+  border-radius: var(--raio); box-shadow: var(--sombra); padding: 22px 24px;
+}
+.estagio-num {
+  font-family: var(--fonte-titulo); font-size: 34px; font-weight: 700;
+  color: var(--cor-destaque); line-height: 1; text-align: center;
+  border-right: 1px solid var(--cor-borda-suave); padding-right: 14px; padding-top: 4px;
+}
+.estagio-num small {
+  display: block; font-family: var(--fonte-corpo); font-size: 10.5px; letter-spacing: 1.5px;
+  color: var(--cor-texto-secundario); text-transform: uppercase; margin-bottom: 4px;
+}
+.estagio h3 { font-size: 20px; margin-bottom: 4px; }
+.estagio-ref { color: var(--cor-destaque-hover); font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+.estagio p { color: var(--cor-texto-secundario); margin-bottom: 12px; }
+.estagio-acoes { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.btn-pequeno { padding: 7px 16px; font-size: 14.5px; }
+.selo {
+  display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .5px;
+  text-transform: uppercase; border-radius: 20px; padding: 3px 12px; margin-bottom: 10px;
+}
+.selo-ok { background: var(--cor-primaria); color: var(--cor-destaque); }
+.selo-breve { background: var(--cor-fundo-pagina); color: var(--cor-texto-secundario); border: 1px solid var(--cor-borda-suave); }
+.texto-breve { font-size: 14px; font-style: italic; color: var(--cor-texto-secundario); }
+.grupo-titulo { font-size: 20px; margin: 40px 0 16px; }
+.grupo-titulo:first-child { margin-top: 0; }
+.nota-pagina { font-size: 14.5px; color: var(--cor-texto-secundario); margin-top: 28px; }
+@media (max-width: 560px) {
+  .estagio { grid-template-columns: 1fr; }
+  .estagio-num { border-right: 0; border-bottom: 1px solid var(--cor-borda-suave); padding: 0 0 10px; text-align: left; }
+  .estagio-num small { display: inline; margin-right: 8px; }
+}
+/* ============================================================
+   BIOGRAFIAS COMPLETAS — COMPONENTES UNIFICADOS (RAÍZES PROFUNDAS)
+   ============================================================ */
+.bio-conteudo {
+  min-width: 0;
+}
+
+.bio-conteudo h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  scroll-margin-top: 96px;
+}
+
+.bio-conteudo h2 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+  color: var(--cor-destaque);
+  font-family: var(--fonte-titulo);
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.bio-conteudo h3 {
+  color: var(--cor-primaria-clara);
+  scroll-margin-top: 96px;
+}
+
+.bio-conteudo h4 {
+  font-size: 17px;
+  color: var(--cor-primaria);
+  margin: 18px 0 8px;
+}
+
+.bio-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.bio-chip {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: var(--cor-primaria-clara);
+  color: var(--cor-texto-claro);
+  border: 1px solid rgba(198, 163, 94, 0.35);
+}
+
+.bio-chip-destaque {
+  background-color: var(--cor-destaque);
+  color: var(--cor-primaria);
+  border-color: var(--cor-destaque);
+  font-weight: 700;
+}
+
+/* Fichas de personagem */
+.bio-conteudo .ficha {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  border-top: 4px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  padding: 20px 24px;
+  margin: 0 0 28px;
+  box-shadow: var(--sombra);
+}
+
+.bio-conteudo .ficha-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px 20px;
+}
+
+.bio-conteudo .ficha-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bio-conteudo .ficha-item .label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--cor-destaque-hover);
+}
+
+.bio-conteudo .ficha-item .value {
+  font-family: var(--fonte-titulo);
+  font-size: 16px;
+  color: var(--cor-primaria);
+  font-weight: 600;
+}
+
+.bio-conteudo .ficha dl {
+  display: grid;
+  grid-template-columns: 185px minmax(0, 1fr);
+  gap: 0;
+  margin: 0;
+}
+
+.bio-conteudo .ficha dt {
+  font-weight: 700;
+  color: var(--cor-primaria);
+  padding: 10px 14px 10px 0;
+  border-bottom: 1px solid var(--cor-borda-suave);
+  font-size: 15px;
+}
+
+.bio-conteudo .ficha dd {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--cor-borda-suave);
+  color: var(--cor-texto-principal);
+  margin: 0;
+  font-size: 15.5px;
+}
+
+.bio-conteudo .ficha dt:last-of-type,
+.bio-conteudo .ficha dd:last-of-type {
+  border-bottom: 0;
+}
+
+/* Etiquetas e legenda de fontes */
+.bio-conteudo .legenda,
+.bio-conteudo .bloco-guia {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  border-left: 4px solid var(--cor-primaria);
+  border-radius: var(--raio);
+  padding: 18px 22px;
+  margin: 0 0 26px;
+  font-size: 15px;
+  color: var(--cor-texto-secundario);
+}
+
+.bio-conteudo .legenda strong,
+.bio-conteudo .bloco-guia strong {
+  color: var(--cor-primaria);
+}
+
+.bio-conteudo .legenda small {
+  display: block;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--cor-borda-suave);
+  color: var(--cor-texto-secundario);
+  font-size: 13.5px;
+}
+
+.bio-conteudo .tag,
+.bio-conteudo .etiqueta-biblia,
+.bio-conteudo .etiqueta-historia,
+.bio-conteudo .etiqueta-tradicao {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 2px 9px;
+  border-radius: 4px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.bio-conteudo .tag-a,
+.bio-conteudo .etiqueta-biblia {
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+}
+
+.bio-conteudo .tag-b,
+.bio-conteudo .etiqueta-historia {
+  background-color: rgba(198, 163, 94, 0.22);
+  color: #6B5016;
+  border: 1px solid rgba(198, 163, 94, 0.55);
+}
+
+.bio-conteudo .tag-c,
+.bio-conteudo .etiqueta-tradicao {
+  background-color: var(--cor-fundo-pagina);
+  color: var(--cor-texto-secundario);
+  border: 1px solid var(--cor-borda-suave);
+}
+
+/* Caixas, blocos e destaques */
+.bio-conteudo .bloco-card,
+.bio-conteudo .caixa,
+.bio-conteudo .box,
+.bio-conteudo .obra,
+.bio-conteudo .apoio,
+.bio-conteudo .pensar {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  border-left: 4px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  padding: 20px 24px;
+  margin: 22px 0;
+  box-shadow: var(--sombra);
+}
+
+.bio-conteudo .bloco-pastoral,
+.bio-conteudo .caixa-ouro,
+.bio-conteudo .box-reflexao {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  border-left: 4px solid var(--cor-destaque);
+  border-top: 2px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  padding: 20px 24px;
+  margin: 22px 0;
+  box-shadow: var(--sombra);
+}
+
+.bio-conteudo .caixa-tradutor,
+.bio-conteudo .box-nota {
+  border-left-color: var(--cor-primaria-clara);
+}
+
+.bio-conteudo .caixa-cuidado {
+  background-color: var(--cor-fundo-pagina);
+  border-left-color: var(--cor-primaria);
+}
+
+.bio-conteudo .caixa-verso,
+.bio-conteudo .verse-block {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  border-left: 5px solid var(--cor-destaque);
+  border-radius: 0 var(--raio) var(--raio) 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--cor-texto-principal);
+}
+
+.bio-conteudo .verse-ref {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-family: var(--fonte-corpo);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-destaque-hover);
+}
+
+.bio-conteudo .caixa-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  margin-bottom: 8px;
+}
+
+.bio-conteudo .obra h3,
+.bio-conteudo .apoio h3,
+.bio-conteudo .box h4,
+.bio-conteudo .bloco-card h3:first-child {
+  margin-top: 0;
+}
+
+.bio-conteudo .obra .verso-chave {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  color: var(--cor-destaque-hover);
+  font-size: 15.5px;
+  margin-bottom: 10px;
+}
+
+.bio-conteudo .caixa p:last-child,
+.bio-conteudo .box p:last-child,
+.bio-conteudo .bloco-card p:last-child,
+.bio-conteudo .bloco-pastoral p:last-child,
+.bio-conteudo .obra p:last-child,
+.bio-conteudo .apoio p:last-child,
+.bio-conteudo .pensar p:last-child {
+  margin-bottom: 0;
+}
+
+/* Banners de seção (Josias) harmonizados à paleta Raízes Profundas */
+.bio-conteudo .section-banner {
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  border-left: 5px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  padding: 16px 22px;
+  margin: 38px 0 18px;
+  scroll-margin-top: 96px;
+}
+
+.bio-conteudo .section-banner.b-lapis {
+  background-color: var(--cor-primaria-clara);
+}
+
+.bio-conteudo .section-banner .eyebrow {
+  display: block;
+  color: var(--cor-destaque);
+  font-family: var(--fonte-corpo);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.bio-conteudo .section-banner h2 {
+  color: var(--cor-branco);
+  border-left: 0;
+  padding-left: 0;
+  margin: 0;
+  font-size: 22px;
+}
+
+.bio-conteudo .bio-bloco-secao {
+  margin-bottom: 8px;
+}
+
+/* Tabelas responsivas nas biografias */
+.bio-conteudo .rolagem {
+  overflow-x: auto;
+  margin: 20px 0;
+  border-radius: var(--raio);
+  border: 1px solid var(--cor-borda-suave);
+  background-color: var(--cor-branco);
+}
+
+.bio-conteudo table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--cor-branco);
+  font-size: 15.5px;
+}
+
+.bio-conteudo .rolagem table {
+  margin: 0;
+}
+
+.bio-conteudo > table,
+.bio-conteudo section > table {
+  margin: 20px 0;
+  border: 1px solid var(--cor-borda-suave);
+}
+
+.bio-conteudo th {
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  text-align: left;
+  padding: 11px 14px;
+  font-family: var(--fonte-corpo);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.bio-conteudo td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--cor-borda-suave);
+  vertical-align: top;
+  color: var(--cor-texto-principal);
+}
+
+.bio-conteudo tr:last-child td,
+.bio-conteudo tr:last-child th {
+  border-bottom: 0;
+}
+
+.bio-conteudo tbody tr:nth-child(even) td,
+.bio-conteudo table.tabela-milagres tr:nth-child(even) td,
+.bio-conteudo table.kings-table tr:nth-child(even) td {
+  background-color: var(--cor-fundo-pagina);
+}
+
+.bio-conteudo .heb-table td.heb,
+.bio-conteudo em.heb {
+  font-style: italic;
+  color: var(--cor-destaque-hover);
+  font-weight: 600;
+}
+
+.bio-conteudo .kings-table td.k-name {
+  font-weight: 700;
+  color: var(--cor-primaria);
+  white-space: nowrap;
+}
+
+.bio-conteudo .kings-table td.k-rel {
+  font-style: italic;
+  color: var(--cor-texto-secundario);
+}
+
+/* Genealogia (Josias) */
+.bio-conteudo .genealogy {
+  column-count: 2;
+  column-gap: 32px;
+  margin: 22px 0;
+  padding: 22px 24px;
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  border-left: 5px solid var(--cor-destaque);
+  border-radius: var(--raio);
+}
+
+.bio-conteudo .gen-line {
+  margin: 0 0 10px;
+  font-size: 15.5px;
+  break-inside: avoid;
+}
+
+.bio-conteudo .gen-n {
+  display: inline-block;
+  width: 24px;
+  font-family: var(--fonte-titulo);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cor-destaque-hover);
+}
+
+.bio-conteudo .gen-final {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--cor-primaria);
+  border-top: 1px solid var(--cor-borda-suave);
+  padding-top: 10px;
+  margin-top: 6px;
+}
+
+.bio-conteudo .gen-ref {
+  display: block;
+  margin-left: 24px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--cor-texto-secundario);
+  font-weight: 400;
+}
+
+/* Linha do tempo (Josias) */
+.bio-conteudo .timeline {
+  position: relative;
+  margin: 24px 0 24px 8px;
+  padding-left: 26px;
+  border-left: 3px solid var(--cor-destaque);
+}
+
+.bio-conteudo .t-item {
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.bio-conteudo .t-item:last-child {
+  padding-bottom: 2px;
+}
+
+.bio-conteudo .t-item::before {
+  content: '';
+  position: absolute;
+  left: -34px;
+  top: 4px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+  border: 3px solid var(--cor-destaque);
+}
+
+.bio-conteudo .t-age {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  color: var(--cor-destaque-hover);
+  font-size: 14.5px;
+}
+
+.bio-conteudo .t-title {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  margin: 2px 0 6px;
+  font-size: 18px;
+  color: var(--cor-primaria);
+}
+
+.bio-conteudo .t-body {
+  font-size: 15.5px;
+  color: var(--cor-texto-secundario);
+  margin: 0;
+}
+
+/* Passos numerados (Josias e Esdras) */
+.bio-conteudo .avivamento-steps,
+.bio-conteudo .passos {
+  counter-reset: passo;
+  list-style: none;
+  padding: 0;
+  margin: 22px 0;
+}
+
+.bio-conteudo .avivamento-steps li,
+.bio-conteudo .passos li {
+  counter-increment: passo;
+  position: relative;
+  padding: 6px 0 18px 44px;
+  border-left: 2px solid var(--cor-borda-suave);
+  margin-left: 14px;
+}
+
+.bio-conteudo .avivamento-steps li:last-child,
+.bio-conteudo .passos li:last-child {
+  border-left-color: transparent;
+}
+
+.bio-conteudo .avivamento-steps li::before,
+.bio-conteudo .passos li::before {
+  content: counter(passo);
+  position: absolute;
+  left: -15px;
+  top: 2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+  color: var(--cor-destaque);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bio-conteudo .avivamento-steps h4 {
+  margin: 0 0 4px;
+  font-size: 17px;
+  color: var(--cor-primaria);
+}
+
+.bio-conteudo .avivamento-steps p {
+  margin: 0;
+  font-size: 15.5px;
+  color: var(--cor-texto-secundario);
+}
+
+/* Cartões dos profetas (Josias) */
+.bio-conteudo .prophet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.bio-conteudo .prophet-card {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  border-top: 4px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  padding: 18px 18px 14px;
+  box-shadow: var(--sombra);
+}
+
+.bio-conteudo .prophet-card.p-lapis {
+  border-top-color: var(--cor-primaria);
+}
+
+.bio-conteudo .prophet-card.p-wine {
+  border-top-color: var(--cor-primaria-clara);
+}
+
+.bio-conteudo .prophet-card h4 {
+  margin: 0 0 4px;
+  font-size: 19px;
+}
+
+.bio-conteudo .prophet-card .role {
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--cor-destaque-hover);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.bio-conteudo .prophet-card p {
+  font-size: 14.5px;
+  color: var(--cor-texto-secundario);
+  margin-bottom: 10px;
+}
+
+/* Listas estilizadas (Eliseu / Isaque / Esdras) */
+.bio-conteudo ul.cartoes {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.bio-conteudo ul.cartoes li {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  border-left: 4px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  padding: 14px 18px;
+  margin: 0;
+}
+
+.bio-conteudo ul.cartoes li:nth-child(even) {
+  border-left-color: var(--cor-primaria);
+}
+
+.bio-conteudo .quem-agiu {
+  display: inline-block;
+  background-color: var(--cor-fundo-pagina);
+  border: 1px solid var(--cor-borda-suave);
+  color: var(--cor-primaria);
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.bio-conteudo .fonte {
+  font-size: 14.5px;
+  color: var(--cor-texto-secundario);
+  font-style: italic;
+}
+
+/* Referências bíblicas clicáveis (Mulher Samaritana) */
+.bio-ref-biblia {
+  color: var(--cor-primaria);
+  font-weight: 700;
+  border-bottom: 2px dotted var(--cor-destaque);
+  cursor: pointer;
+  padding: 0 2px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.bio-ref-biblia:hover {
+  background-color: rgba(198, 163, 94, 0.22);
+  color: var(--cor-primaria);
+}
+
+#menu-biblia {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 270px;
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  border: 2px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  padding: 16px 18px;
+  box-shadow: var(--sombra-forte);
+  z-index: 250;
+}
+
+#menu-biblia strong {
+  display: block;
+  font-family: var(--fonte-titulo);
+  color: var(--cor-destaque);
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#menu-biblia a {
+  display: block;
+  background-color: var(--cor-primaria-clara);
+  color: var(--cor-branco);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-bottom: 7px;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-align: center;
+}
+
+#menu-biblia a:hover {
+  background-color: var(--cor-destaque);
+  color: var(--cor-primaria);
+}
+
+#menu-biblia button {
+  width: 100%;
+  margin-top: 4px;
+  padding: 7px 12px;
+  background-color: transparent;
+  color: var(--cor-texto-claro);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#menu-biblia button:hover {
+  border-color: var(--cor-destaque);
+  color: var(--cor-destaque);
+}
+
+/* Destaque da subpágina de resumos no catálogo de biografias */
+.banner-resumos {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-suave);
+  border-left: 5px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 22px 26px;
+  margin-bottom: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.banner-resumos h2 {
+  font-size: 21px;
+  margin-bottom: 6px;
+}
+
+.banner-resumos p {
+  color: var(--cor-texto-secundario);
+  margin: 0;
+  max-width: 660px;
+  font-size: 15.5px;
+}
+
+@media (max-width: 720px) {
+  .bio-conteudo .genealogy { column-count: 1; }
+  .bio-conteudo .prophet-grid { grid-template-columns: 1fr; }
+  .bio-conteudo .ficha dl { grid-template-columns: 1fr; }
+  .bio-conteudo .ficha dt { border-bottom: 0; padding-bottom: 2px; }
+  .bio-conteudo .ficha dd { padding-top: 0; }
+}
